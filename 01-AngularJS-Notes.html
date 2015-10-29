@@ -98,6 +98,255 @@ Directives</strong>.</p>
     <p>The <strong>ng-model</strong> directive binds the value of HTML controls (input, select, textarea) to application data.</p>
     <h2>The ng-repeat Directive</h2>
     <p>The <strong>ng-repeat</strong> directive <strong>clones HTML elements</strong> once for each item in a collection (in an array). </p>
+    <hr>
+    <h2>AngularJS Controllers</h2>
+    <p class="intro">AngularJS controllers <strong>control the data</strong> of AngularJS applications.
+    </p>
+    <p class="intro">AngularJS controllers are regular <strong>JavaScript Objects</strong>.</p>
+    <p>The <strong>ng-controller</strong> directive defines the application controller. </p>
+    <p>A controller is a <strong>JavaScript Object</strong>, created by a standard JavaScript <strong>object constructor</strong>.</p>
+    <hr>
+    <h2>AngularJS Filters</h2>
+    <p>AngularJS filters can be used to transform data:</p>
+    <table class="w3-table-all notranslate">
+        <tbody>
+            <tr>
+                <th style="width:20%">Filter</th>
+                <th>Description</th>
+            </tr>
+            <tr>
+                <td>currency</td>
+                <td>Format a number to a currency format.</td>
+            </tr>
+            <tr>
+                <td>filter</td>
+                <td>Select a subset of items from an array.</td>
+            </tr>
+            <tr>
+                <td>lowercase</td>
+                <td>Format a string to lower case.</td>
+            </tr>
+            <tr>
+                <td>orderBy</td>
+                <td>Orders an array by an expression.</td>
+            </tr>
+            <tr>
+                <td>uppercase</td>
+                <td>Format a string to upper case.</td>
+            </tr>
+        </tbody>
+    </table>
+    <h2>Adding Filters to Expressions</h2>
+    <p>A filter can be added to an expression with a pipe character (|) and a filter.</p>
+    <p>The <strong>uppercase</strong> filter format strings to upper case:</p>
+    <div class="w3-example">
+        <h3>AngularJS Example</h3>
+        <div class="w3-code notranslate htmlHigh">
+            <span class="highLT">&lt;</span><span class="highELE">div</span> <span class="highATT">ng-app=</span><span class="highVAL">"myApp"</span> <span class="highATT">ng-controller=</span><span class="highVAL">"personCtrl"</span><span class="highGT">&gt;</span>
+            <br>
+            <br>
+            <span class="highLT">&lt;</span><span class="highELE">p</span><span class="highGT">&gt;</span>The name is <span class="highATT">{{ lastName | uppercase }}</span><span class="highLT">&lt;</span><span class="highELE">/p</span><span class="highGT">&gt;</span>
+            <br>
+            <br>
+            <span class="highLT">&lt;</span><span class="highELE">/div</span><span class="highGT">&gt;</span>
+        </div>
+        <a class="w3-btn w3-margin-bottom" href="tryit.asp?filename=try_ng_filters_uppercase" target="_blank">Try it Yourself »</a>
+    </div>
+    <h2>Adding Filters to Directives</h2>
+    <p>A filter can be added to a directive with a pipe character (|) and a filter.</p>
+    <p>The <strong>orderBy</strong> filter orders an array by an expression:</p>
+    <div class="w3-example">
+        <h3>AngularJS Example</h3>
+        <div class="w3-code notranslate htmlHigh">
+            <span class="highLT">&lt;</span><span class="highELE">div</span> <span class="highATT">ng-app=</span><span class="highVAL">"myApp"</span> <span class="highATT">ng-controller=</span><span class="highVAL">"namesCtrl"</span><span class="highGT">&gt;</span>
+            <br>
+            <br>
+            <span class="highLT">&lt;</span><span class="highELE">ul</span><span class="highGT">&gt;</span>
+            <br> &nbsp; <span class="highLT">&lt;</span><span class="highELE">li</span> <span class="highATT">ng-repeat=</span><span class="highVAL">"x in names | orderBy:'country'"</span><span class="highGT">&gt;</span>
+            <br> &nbsp;&nbsp;&nbsp; <span class="highATT">{{ x.name + ', ' + x.country }}</span>
+            <br>&nbsp; <span class="highLT">&lt;</span><span class="highELE">/li</span><span class="highGT">&gt;</span>
+            <br><span class="highLT">&lt;</span><span class="highELE">/ul</span><span class="highGT">&gt;</span>
+            <br>
+            <br><span class="highLT">&lt;</span><span class="highELE">div</span><span class="highGT">&gt;</span>
+        </div>
+        <a class="w3-btn w3-margin-bottom" href="tryit.asp?filename=try_ng_filters_orderby" target="_blank">Try it Yourself »</a>
+    </div>
+    <h2>Filtering Input</h2>
+    <div class="w3-example">
+        <h3>AngularJS Example</h3>
+        <div class="w3-code notranslate htmlHigh">
+            <span class="highLT">&lt;</span><span class="highELE">div</span> <span class="highATT">ng-app=</span><span class="highVAL">"myApp"</span> <span class="highATT">ng-controller=</span><span class="highVAL">"namesCtrl"</span><span class="highGT">&gt;</span>
+            <br>
+            <br>
+            <span class="highLT">&lt;</span><span class="highELE">p</span><span class="highGT">&gt;</span><span class="highLT">&lt;</span><span class="highELE">input</span> <span class="highATT">type=</span><span class="highVAL">"text"</span> <span class="highATT">ng-model=</span><span class="highVAL">"test"</span><span class="highGT">&gt;</span><span class="highLT">&lt;</span><span class="highELE">/p</span><span class="highGT">&gt;</span>
+            <br>
+            <br>
+            <span class="highLT">&lt;</span><span class="highELE">ul</span><span class="highGT">&gt;</span>
+            <br>&nbsp; <span class="highLT">&lt;</span><span class="highELE">li</span> <span class="highATT">ng-repeat=</span><span class="highVAL">"x in names |
+<span class="</span><span class='highATT'>marked">filter:test</span> | orderBy:'country'"</span><span class="highGT">&gt;</span>
+            <br>&nbsp;&nbsp;&nbsp; <span class="highATT">{{ (x.name | uppercase) + ', ' + x.country }}</span>
+            <br>&nbsp; <span class="highLT">&lt;</span><span class="highELE">/li</span><span class="highGT">&gt;</span>
+            <br><span class="highLT">&lt;</span><span class="highELE">/ul</span><span class="highGT">&gt;</span>
+            <br>
+            <br><span class="highLT">&lt;</span><span class="highELE">/div</span><span class="highGT">&gt;</span>
+        </div>
+        <a class="w3-btn w3-margin-bottom" href="tryit.asp?filename=try_ng_filters_input" target="_blank">Try it Yourself »</a>
+    </div>
+    <hr>
+    <h1>AngularJS <span class="color_h1">AJAX - $http</span></h1>
+    <h2>AngularJS $http</h2>
+    <p>AngularJS <strong>$http</strong> is a core service for reading data from web servers. </p>
+    <p>$http.get(url) is the function to use for reading server data. </p>
+    <div class="w3-example">
+        <h3>AngularJS Example</h3>
+        <div class="w3-code notranslate htmlHigh">
+            <span class="highLT">&lt;</span><span class="highELE">div</span> <span class="highATT">ng-app=</span><span class="highVAL">"myApp"</span> <span class="highATT">ng-controller=</span><span class="highVAL">"customersCtrl"</span><span class="highGT">&gt;</span>
+            <br>
+            <br><span class="highLT">&lt;</span><span class="highELE">ul</span><span class="highGT">&gt;</span>
+            <br>&nbsp; <span class="highLT">&lt;</span><span class="highELE">li</span>
+            <span class="highATT">ng-repeat=</span><span class="highVAL">"x in names"</span><span class="highGT">&gt;</span>
+            <br>&nbsp;&nbsp;&nbsp; <span class="highATT">{{ x.Name + ', ' + x.Country }}</span>
+            <br>&nbsp; <span class="highLT">&lt;</span><span class="highELE">/li</span><span class="highGT">&gt;</span>
+            <br>
+            <span class="highLT">&lt;</span><span class="highELE">/ul</span><span class="highGT">&gt;</span>
+            <br>
+            <br><span class="highLT">&lt;</span><span class="highELE">/div</span><span class="highGT">&gt;</span>
+            <br>
+            <br><span class="highLT">&lt;</span><span class="highELE">script</span><span class="highGT">&gt;</span>
+            <br>var app = angular.module('myApp', []);
+            <br>app.controller('customersCtrl', function($scope, $http) {
+            <br>&nbsp;&nbsp;&nbsp; $http.get("http://www.w3schools.com/angular/customers.php")
+            <br>&nbsp;&nbsp;&nbsp; .success(function(response) {$scope.names = response.records;});
+            <br>});
+            <br><span class="highLT">&lt;</span><span class="highELE">/script</span><span class="highGT">&gt;</span>
+        </div>
+        <a class="w3-btn w3-margin-bottom" href="tryit.asp?filename=try_ng_customers_json" target="_blank">
+	Try it Yourself »</a>
+    </div>
+    <p>AngularJS will invoke customersCtrl with a <strong>$scope</strong> and
+        <strong>$http</strong> object.</p>
+    <p>$scope is the <strong>application object</strong> (the owner of application variables and functions).</p>
+    <p>&nbsp;$http is an <strong>XMLHttpRequest object</strong> for requesting external data.</p>
+    <hr>
+    <h1>AngularJS <span class="color_h1">Tables</span></h1>
+    <p class="intro">
+        The ng-repeat directive is perfect for displaying tables.
+    </p>
+    <h2>Display the Table Index ($index)</h2>
+    <div class="w3-example">
+        <h3>AngularJS Example</h3>
+        <div class="w3-code notranslate htmlHigh">
+            <span class="highLT">&lt;</span><span class="highELE">table</span><span class="highGT">&gt;</span>
+            <br>&nbsp; <span class="highLT">&lt;</span><span class="highELE">tr</span> <span class="highATT">ng-repeat=</span><span class="highVAL">"x in names"</span><span class="highGT">&gt;</span>
+            <br>&nbsp;&nbsp;&nbsp;
+            <span class="highLT">&lt;</span><span class="highELE">td</span><span class="highGT">&gt;</span><span class="highATT">{{ $index + 1 }}</span><span class="highLT">&lt;</span><span class="highELE">/td</span><span class="highGT">&gt;</span>
+            <br>&nbsp;&nbsp;&nbsp; <span class="highLT">&lt;</span><span class="highELE">td</span><span class="highGT">&gt;</span><span class="highATT">{{ x.Name }}</span><span class="highLT">&lt;</span><span class="highELE">/td</span><span class="highGT">&gt;</span>
+            <br>&nbsp;&nbsp;&nbsp; <span class="highLT">&lt;</span><span class="highELE">td</span><span class="highGT">&gt;</span><span class="highATT">{{ x.Country }}</span><span class="highLT">&lt;</span><span class="highELE">/td</span><span class="highGT">&gt;</span>
+            <br>&nbsp;
+            <span class="highLT">&lt;</span><span class="highELE">/tr</span><span class="highGT">&gt;</span>
+            <br><span class="highLT">&lt;</span><span class="highELE">/table</span><span class="highGT">&gt;</span>
+        </div>
+        <a class="w3-btn w3-margin-bottom" href="tryit.asp?filename=try_ng_tables_index" target="_blank">Try it Yourself »</a>
+    </div>
+    <h2>Using $even and $odd</h2>
+    <div class="w3-example">
+        <h3>AngularJS Example</h3>
+        <div class="w3-code notranslate htmlHigh">
+            <span class="highLT">&lt;</span><span class="highELE">table</span><span class="highGT">&gt;</span>
+            <br><span class="highLT">&lt;</span><span class="highELE">tr</span> <span class="highATT">ng-repeat=</span><span class="highVAL">"x in names"</span><span class="highGT">&gt;</span>
+            <br><span class="highLT">&lt;</span><span class="highELE">td</span> <span class="highATT">ng-if=</span><span class="highVAL">"$odd"</span>
+            <span class="highATT">style=</span><span class="highVAL">"background-color:#f1f1f1"</span><span class="highGT">&gt;</span><span class="highATT">{{ x.Name }}</span><span class="highLT">&lt;</span><span class="highELE">/td</span><span class="highGT">&gt;</span>
+            <br><span class="highLT">&lt;</span><span class="highELE">td</span> <span class="highATT">ng-if=</span><span class="highVAL">"$even"</span><span class="highGT">&gt;</span><span class="highATT">{{
+ x.Name }}</span><span class="highLT">&lt;</span><span class="highELE">/td</span><span class="highGT">&gt;</span>
+            <br><span class="highLT">&lt;</span><span class="highELE">td</span> <span class="highATT">ng-if=</span><span class="highVAL">"$odd"</span> <span class="highATT">style=</span><span class="highVAL">"background-color:#f1f1f1"</span><span class="highGT">&gt;</span><span class="highATT">{{
+ x.Country }}</span><span class="highLT">&lt;</span><span class="highELE">/td</span><span class="highGT">&gt;</span>
+            <br><span class="highLT">&lt;</span><span class="highELE">td</span> <span class="highATT">ng-if=</span><span class="highVAL">"$even"</span><span class="highGT">&gt;</span><span class="highATT">{{ x.Country }}</span><span class="highLT">&lt;</span><span class="highELE">/td</span><span class="highGT">&gt;</span>
+            <br><span class="highLT">&lt;</span><span class="highELE">/tr</span><span class="highGT">&gt;</span>
+            <br>
+            <span class="highLT">&lt;</span><span class="highELE">/table</span><span class="highGT">&gt;</span>
+        </div>
+        <a class="w3-btn w3-margin-bottom" href="tryit.asp?filename=try_ng_tables_even" target="_blank">Try it Yourself »</a>
+    </div>
+    <hr>
+    <h1>AngularJS <span class="color_h1">SQL</span></h1>
+    <h2>Fetching Data From an ASP.NET Server Running SQL</h2>
+    <div class="w3-example">
+        <h3>AngularJS Example</h3>
+        <div class="w3-code notranslate htmlHigh">
+            <span class="highLT">&lt;</span><span class="highELE">div</span> <span class="highATT">ng-app=</span><span class="highVAL">"myApp"</span> <span class="highATT">ng-controller=</span><span class="highVAL">"customersCtrl"</span><span class="highGT">&gt;</span>
+            <br>
+            <br><span class="highLT">&lt;</span><span class="highELE">table</span><span class="highGT">&gt;</span>
+            <br>&nbsp; <span class="highLT">&lt;</span><span class="highELE">tr</span>
+            <span class="highATT">ng-repeat=</span><span class="highVAL">"x in names"</span><span class="highGT">&gt;</span>
+            <br>&nbsp;&nbsp;&nbsp; <span class="highLT">&lt;</span><span class="highELE">td</span><span class="highGT">&gt;</span><span class="highATT">{{ x.Name }}</span><span class="highLT">&lt;</span><span class="highELE">/td</span><span class="highGT">&gt;</span>
+            <br> &nbsp;&nbsp;&nbsp; <span class="highLT">&lt;</span><span class="highELE">td</span><span class="highGT">&gt;</span><span class="highATT">{{ x.Country
+}}</span><span class="highLT">&lt;</span><span class="highELE">/td</span><span class="highGT">&gt;</span>
+            <br>&nbsp; <span class="highLT">&lt;</span><span class="highELE">/tr</span><span class="highGT">&gt;</span>
+            <br><span class="highLT">&lt;</span><span class="highELE">/table</span><span class="highGT">&gt;</span>
+            <br>
+            <br><span class="highLT">&lt;</span><span class="highELE">/div</span><span class="highGT">&gt;</span>
+            <br>
+            <br>
+            <span class="highLT">&lt;</span><span class="highELE">script</span><span class="highGT">&gt;</span>
+            <br>var app = angular.module('myApp', []);
+            <br>app.controller('customersCtrl', function($scope, $http) {
+            <br>&nbsp;&nbsp;&nbsp; $http.get("http://www.w3schools.com/angular/customers_sql.aspx")
+            <br>&nbsp;&nbsp;&nbsp; .success(function (response) {$scope.names = response.records;});
+            <br>});
+            <br><span class="highLT">&lt;</span><span class="highELE">/script</span><span class="highGT">&gt;</span></div>
+        <a class="w3-btn w3-margin-bottom" href="tryit.asp?filename=try_ng_customers_sql" target="_blank">Try it Yourself »</a>
+    </div>
+    <h2>Cross-Site HTTP Requests</h2>
+    <p>Requests for data from a different server (than the requesting page), are called <strong>cross-site</strong> HTTP requests.</p>
+    <p>Cross-site requests are common on the web. Many pages load CSS, images, and scripts from different servers.</p>
+    <p>In modern browsers, cross-site HTTP requests <strong>from scripts</strong> are restricted to <strong>same site</strong> for security reasons.</p>
+    <h2>3. Server Code ASP.NET, VB and MS Access</h2>
+    <div class="w3-example">
+        <div class="w3-code notranslate">
+            &lt;%@ Import Namespace="System.IO"%&gt;
+            <br>&lt;%@ Import Namespace="System.Data"%&gt;
+            <br> &lt;%@ Import Namespace="System.Data.OleDb"%&gt;
+            <br>&lt;%
+            <br> Response.AppendHeader("Access-Control-Allow-Origin", "*")
+            <br> Response.AppendHeader("Content-type", "application/json")
+            <br>Dim conn As OleDbConnection
+            <br>Dim objAdapter As OleDbDataAdapter
+            <br>Dim objTable As DataTable
+            <br>Dim objRow As DataRow
+            <br>Dim objDataSet As New DataSet()
+            <br> Dim outp
+            <br>Dim c
+            <br>conn = New OledbConnection("Provider=Microsoft.Jet.OLEDB.4.0;data source=Northwind.mdb")
+            <br>objAdapter = New OledbDataAdapter("SELECT CompanyName, City, Country FROM Customers", conn)
+            <br>objAdapter.Fill(objDataSet, "myTable")
+            <br>objTable=objDataSet.Tables("myTable")
+            <br>
+            <br>outp = ""
+            <br> c = chr(34)
+            <br>for each x in objTable.Rows
+            <br>if outp &lt;&gt; "" then outp = outp &amp; ","
+            <br> outp = outp &amp; "{" &amp; c &amp; "Name"&nbsp;&nbsp;&nbsp; &amp; c &amp; ":" &amp; c &amp; x("CompanyName") &amp; c &amp; ","
+            <br> outp = outp &amp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; c &amp; "City"&nbsp;&nbsp;&nbsp; &amp; c &amp; ":" &amp; c &amp; x("City")&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &amp; c &amp; ","
+            <br>outp = outp &amp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; c &amp; "Country" &amp; c &amp; ":" &amp; c &amp; x("Country")&nbsp;&nbsp;&nbsp;&nbsp; &amp; c &amp; "}"
+            <br>next
+            <br>
+            <br>outp ="{" &amp; c &amp; "records" &amp; c &amp; ":[" &amp; outp &amp; "]}"
+            <br>response.write(outp)
+            <br>conn.close
+            <br>%&gt;
+        </div>
+    </div>
+    <hr>
+    <h1>AngularJS <span class="color_h1">HTML DOM</span></h1>
+    <p class="intro">AngularJS has directives for binding application data to the
+attributes of HTML DOM elements.</p>
+<h2>The ng-disabled Directive</h2>
+<p>The <strong>ng-disabled</strong> directive binds AngularJS application data to the
+disabled attribute of HTML elements.</p>
+<h2>The ng-show Directive</h2>
+<p>The <strong>ng-show</strong> directive shows or hides an HTML
+element.</p>
+
 </body>
 
 </html>
