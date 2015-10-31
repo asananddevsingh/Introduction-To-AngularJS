@@ -411,7 +411,112 @@ Directives</strong>.</p>
     <h2>When to Load the Library</h2>
     <p>While it is common in HTML applications to place scripts at the end of the &lt;body&gt; element, it is recommended that you load the AngularJS library either in the &lt;head&gt; or at the start of the &lt;body&gt;.</p>
     <p>This is because calls to angular.module can only be compiled after the library has been loaded.</p>
-
+    <h1>AngularJS <span class="color_h1">Forms</span></h1>
+    <p class="intro">An AngularJS form is a collection of input controls.</p>
+    <p>HTML input elements are called HTML controls:</p>
+    <ul>
+        <li>input elements</li>
+        <li>select elements</li>
+        <li>button elements</li>
+        <li>textarea elements</li>
+    </ul>
+    <h1>AngularJS <span class="color_h1">Input Validation</span></h1>
+    <p class="intro">AngularJS forms and controls can validate input data.</p>
+    <h2>Input Validation</h2>
+    <p>AngularJS forms and controls can provide validation services, and notify users of invalid input.</p>
+    <table class="lamp">
+        <tbody>
+            <tr>
+                <th style="width:34px"><img src="/images/lamp.jpg" alt="Note" style="height:32px;width:32px"></th>
+                <td>Client-side validation cannot alone secure user input. Server side validation is also necessary.</td>
+            </tr>
+        </tbody>
+    </table>
+    <h1>AngularJS <span class="color_h1">API</span></h1>
+    <p class="intro">API stands for <strong>A</strong>pplication
+        <strong>P</strong>rogramming <strong>I</strong>nterface.</p>
+    <h2>AngularJS Global API</h2>
+    <p>The AngularJS Global API is a set of global JavaScript functions for performing common tasks like:
+    </p>
+    <ul>
+        <li>Comparing objects</li>
+        <li>Iterating objects</li>
+        <li>Converting data</li>
+    </ul>
+    <p>Below is a list of some common API functions:</p>
+    <table class="w3-table-all">
+        <tbody>
+            <tr>
+                <th>API</th>
+                <th>Description</th>
+            </tr>
+            <tr>
+                <td>angular.lowercase()</td>
+                <td>Converts a string to lowercase</td>
+            </tr>
+            <tr>
+                <td>angular.uppercase()</td>
+                <td>Converts a string to uppercase</td>
+            </tr>
+            <tr>
+                <td>angular.isString()</td>
+                <td>Returns true if the reference is a string </td>
+            </tr>
+            <tr>
+                <td>angular.isNumber()</td>
+                <td>Returns true if the reference is a number</td>
+            </tr>
+        </tbody>
+    </table>
+    <h3>angular.lowercase()</h3>
+    <div class="w3-example">
+        <h3>Example</h3>
+        <div class="w3-code notranslate htmlHigh">
+            <span class="highLT">&lt;</span><span class="highELE">div</span> <span class="highATT">ng-app=</span><span class="highVAL">"myApp"</span> <span class="highATT">ng-controller=</span><span class="highVAL">"myCtrl"</span><span class="highGT">&gt;</span>
+            <br>
+            <span class="highLT">&lt;</span><span class="highELE">p</span><span class="highGT">&gt;</span><span class="highATT">{{ x1 }}</span><span class="highLT">&lt;</span><span class="highELE">/p</span><span class="highGT">&gt;</span>
+            <br><span class="highLT">&lt;</span><span class="highELE">p</span><span class="highGT">&gt;</span><span class="highATT">{{ x2 }}</span><span class="highLT">&lt;</span><span class="highELE">/p</span><span class="highGT">&gt;</span>
+            <br><span class="highLT">&lt;</span><span class="highELE">/div</span><span class="highGT">&gt;</span>
+            <br>
+            <br>
+            <span class="highLT">&lt;</span><span class="highELE">script</span><span class="highGT">&gt;</span>
+            <br> var app = angular.module('myApp', []);
+            <br> app.controller('myCtrl', function($scope) {
+            <br> $scope.x1 = "JOHN";
+            <br> $scope.x2 = angular.lowercase($scope.x1);
+            <br> });
+            <br>
+            <span class="highLT">&lt;</span><span class="highELE">/script</span><span class="highGT">&gt;</span>
+        </div>
+        <a class="w3-btn w3-margin-bottom" href="tryit.asp?filename=try_ng_api_lowercase" target="_blank">Try it Yourself »</a>
+    </div>
+    <h1>AngularJS <span class="color_h1">Includes</span></h1>
+    <p class="intro">With AngularJS, you can include HTML files in HTML.</p>
+    <h2>HTML Includes in Future HTML</h2>
+    <p>Including a portion of HTML in HTML is, unfortunately, not (yet) supported by HTML.
+    </p>
+    <div class="w3-example">
+        <div class="w3-code notranslate htmlHigh" style="color: #404040">
+            <span class="highLT">&lt;</span><span class="highELE">link</span> <span class="highATT">rel=</span><span class="highVAL">"import"</span> <span class="highATT">href=</span><span class="highVAL">"/path/navigation.html"</span><span class="highGT">&gt;</span></div>
+    </div>
+    <h2>AngularJS Side Includes</h2>
+    <p>With AngularJS, you can include HTML content using the <strong>ng-include</strong> directive:
+    </p>
+    <div class="w3-example">
+        <h3>Example</h3>
+        <div class="w3-code notranslate htmlHigh">
+            <span class="highLT">&lt;</span><span class="highELE">body</span><span class="highGT">&gt;</span>
+            <br>
+            <br><span class="highLT">&lt;</span><span class="highELE">div</span>
+            <span class="highATT">class=</span><span class="highVAL">"container"</span><span class="highGT">&gt;</span>
+            <br>&nbsp; <span class="highLT">&lt;</span><span class="highELE">div</span> <span class="highATT">ng-include=</span><span class="highVAL">"'myUsers_List.htm'"</span><span class="highGT">&gt;</span><span class="highLT">&lt;</span><span class="highELE">/div</span><span class="highGT">&gt;</span>
+            <br>&nbsp; <span class="highLT">&lt;</span><span class="highELE">div</span>
+            <span class="highATT">ng-include=</span><span class="highVAL">"'myUsers_Form.htm'"</span><span class="highGT">&gt;</span><span class="highLT">&lt;</span><span class="highELE">/div</span><span class="highGT">&gt;</span>
+            <br><span class="highLT">&lt;</span><span class="highELE">/div</span><span class="highGT">&gt;</span>
+            <br>
+            <br>
+            <span class="highLT">&lt;</span><span class="highELE">/body</span><span class="highGT">&gt;</span></div>
+    </div>
 </body>
 
 </html>
