@@ -344,6 +344,73 @@ Directives</strong>.</p>
     <h2>The ng-show Directive</h2>
     <p>The <strong>ng-show</strong> directive shows or hides an HTML element.
     </p>
+    <hr>
+    <h1>AngularJS <span class="color_h1">Events</span></h1>
+    <p class="intro">AngularJS has its own HTML events directives.</p>
+    <h2>The ng-click Directive</h2>
+    <p>The <strong>ng-click</strong> directive defines an AngularJS click event. </p>
+    <div class="w3-example">
+        <h3>AngularJS Example</h3>
+        <div class="w3-code notranslate htmlHigh">
+            <span class="highLT">&lt;</span><span class="highELE">div</span> <span class="highATT">ng-app=</span><span class="highVAL">"myApp"</span> <span class="highATT">ng-controller=</span><span class="highVAL">"myCtrl"</span><span class="highGT">&gt;</span>
+            <br>
+            <br><span class="highLT">&lt;</span><span class="highELE">button</span> <span class="highATT">ng-click=</span><span class="highVAL">"count
+= count + 1"</span><span class="highGT">&gt;</span>Click me!<span class="highLT">&lt;</span><span class="highELE">/button</span><span class="highGT">&gt;</span>
+            <br>
+            <br><span class="highLT">&lt;</span><span class="highELE">p</span><span class="highGT">&gt;</span><span class="highATT">{{ count }}</span><span class="highLT">&lt;</span><span class="highELE">/p</span><span class="highGT">&gt;</span>
+            <br>
+            <br><span class="highLT">&lt;</span><span class="highELE">/div</span><span class="highGT">&gt;</span>
+            <br><span class="highLT">&lt;</span><span class="highELE">script</span><span class="highGT">&gt;</span>
+            <br>var app = angular.module('myApp', []);
+            <br>app.controller('myCtrl', function($scope) {
+            <br>&nbsp;&nbsp;&nbsp; $scope.count = 0;
+            <br>});
+            <br><span class="highLT">&lt;</span><span class="highELE">/script</span><span class="highGT">&gt;</span> </div>
+        <a class="w3-btn w3-margin-bottom" href="tryit.asp?filename=try_ng_events_click" target="_blank">Try it Yourself »</a>
+    </div>
+    <hr>
+    <h2>Hiding HTML Elements</h2>
+    <p>The <strong>ng-hide</strong> directive can be used to set the <strong>visibility</strong> of a part of an application.
+    </p>
+    <p>The value <strong>ng-hide="true"</strong> makes an HTML element
+        <strong>invisible</strong>.</p>
+    <h1>AngularJS <span class="color_h1">Modules</span></h1>
+    <p class="intro">An AngularJS module defines an&nbsp;application.</p>
+    <p class="intro">An AngularJS module defines an&nbsp;application.</p>
+    <p class="intro">The module is a container for the application controllers.</p>
+    <p class="intro">Controllers always belong to a module.</p>
+    <h2>A Module With One Controller </h2>
+    <p>This application ("myApp") has one controller ("myCtrl"): </p>
+    <div class="w3-example">
+        <h3>AngularJS Example</h3>
+        <div class="w3-code notranslate htmlHigh">
+            <span class="highLT">&lt;</span><span class="highELE">!DOCTYPE</span> <span class="highATT">html</span><span class="highGT">&gt;</span>
+            <br><span class="highLT">&lt;</span><span class="highELE">html</span><span class="highGT">&gt;</span>
+            <br><span class="highLT">&lt;</span><span class="highELE">script</span> <span class="highATT">src=</span><span class="highVAL">"http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"</span><span class="highGT">&gt;</span><span class="highLT">&lt;</span><span class="highELE">/script</span><span class="highGT">&gt;</span>
+            <br>
+            <span class="highLT">&lt;</span><span class="highELE">body</span><span class="highGT">&gt;</span>
+            <br>
+            <br><span class="highLT">&lt;</span><span class="highELE">div</span> <span class="highATT">ng-app=</span><span class="highVAL"><strong>"myApp"</strong></span><strong><span class="highATT"></span></strong> ng-controller=<span class="highVAL"><strong>"myCtrl"</strong></span><strong><span class="highATT"></span></strong><span class="highGT">&gt;</span>
+            <br>
+            <span class="highATT">{{ firstName + " " + lastName }}</span>
+            <br><span class="highLT">&lt;</span><span class="highELE">/div</span><span class="highGT">&gt;</span>
+            <br>
+            <br><span class="highLT">&lt;</span><span class="highELE">script</span><span class="highGT">&gt;</span>
+            <br>var app = angular.module(<strong>"myApp"</strong>, []);
+            <br>app.controller(<strong>"myCtrl"</strong>, function($scope) {
+            <br>&nbsp;&nbsp;&nbsp; $scope.firstName = "John";
+            <br>&nbsp;&nbsp;&nbsp; $scope.lastName = "Doe";
+            <br>});
+            <br><span class="highLT">&lt;</span><span class="highELE">/script</span><span class="highGT">&gt;</span>
+            <br>
+            <br><span class="highLT">&lt;</span><span class="highELE">/body</span><span class="highGT">&gt;</span>
+            <br><span class="highLT">&lt;</span><span class="highELE">/html</span><span class="highGT">&gt;</span>
+        </div>
+        <a class="w3-btn w3-margin-bottom" href="tryit.asp?filename=try_ng_module" target="_blank">Try it Yourself »</a>
+    </div>
+    <h2>When to Load the Library</h2>
+    <p>While it is common in HTML applications to place scripts at the end of the &lt;body&gt; element, it is recommended that you load the AngularJS library either in the &lt;head&gt; or at the start of the &lt;body&gt;.</p>
+    <p>This is because calls to angular.module can only be compiled after the library has been loaded.</p>
 
 </body>
 
